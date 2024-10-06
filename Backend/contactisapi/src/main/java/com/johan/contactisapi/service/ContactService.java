@@ -2,15 +2,19 @@ package com.johan.contactisapi.service;
 
 import com.johan.contactisapi.entity.Contact;
 import com.johan.contactisapi.repository.ContactRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@Service
 public class ContactService {
-    @Autowired
-    private ContactRepository contactRepository;
+
+    private final ContactRepository contactRepository;
 
     public Iterable<Contact> findAll() {
         return  contactRepository.findAll();

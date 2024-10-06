@@ -2,17 +2,18 @@ package com.johan.contactisapi.controller;
 
 import com.johan.contactisapi.entity.Contact;
 import com.johan.contactisapi.service.ContactService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-
+@AllArgsConstructor
 @RequestMapping("/api/contacts")
 @RestController
 public class ContactController {
 
-    @Autowired
-    private ContactService contactService;
+
+    private final  ContactService contactService;
 
     @GetMapping
     public Iterable<Contact> List() {
